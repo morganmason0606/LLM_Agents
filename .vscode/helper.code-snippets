@@ -16,11 +16,11 @@
 	// 	"description": "Log output to console"
 	// }
 	"load .env file using dotenv":{
-		"scope":"python, jupyter", 
+		"scope":"jupyter, python", 
 		"prefix":"load_env_var", 
 		"body":[
-			"from dotenv import load_dotenv",
-			"load_dotenv()"
+			"%load_ext dotenv",
+			"%dotenv ../.env"
 		],
 		"description": "load .env file using dotenv"
 	}

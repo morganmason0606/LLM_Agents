@@ -163,3 +163,4 @@ cython_debug/
 
 #spreadsheets
 **.xlsx
+table_handling/pdf.xlsx

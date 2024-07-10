@@ -1,0 +1,61 @@
+question = what is this document about
+answer = This document provides details about the models developed or selected by the Federal Reserve for use in the stress test. It includes information on the approach to supervisory model development and validation, modeling framework, descriptions of supervisory models, and modeled loss rates. The document aims to improve transparency and understanding of the stress test models while maintaining the efficacy of the test.
+Documents used:
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	As part of the annua... all large
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	Find other Federal R...e.gov
+0324
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	Introduction
+This do...cal loans.
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	Contents
+Preface ............. 15
+-----------------------------
+question = what kind of models has the federal reserve created
+answer = The Federal Reserve has created stress testing supervisory models that are independent, forward-looking, and consistent across firms. These models are developed using detailed data provided by firms and are designed to assess each firm's capital adequacy under stress. The models are evaluated by an independent team of Federal Reserve model reviewers.
+Documents used:
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	Reserve model review...hat empha-
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	The Federal Reserve’...s in firm-
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	Approach to Supervis...ss Testing
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	For the 2024 stress ...ependence.
+-----------------------------
+question = what are the models that the fed has created
+answer = The Federal Reserve has developed stress testing models under an industry-level approach using data from financial institutions, focusing on consistent, comparable, and forward-looking projections. These models are designed to provide independent, credible assessments of each firm's capital adequacy under stress and instill public confidence in the banking system. For the 2024 stress test, notable updates were made to supervisory models, including adjustments to first-lien mortgage models and trading IDL models.
+Documents used:
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	The Federal Reserve’s models rely on det...driven by differences in firm-
+
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	Reserve model reviewers.
+In February 201...modeling principle that empha-
+
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	For the 2024 stress test, the Federal Re...riality of the GMS dependence.
+
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	Approach to Supervisory Model
+Developmen...tem finalized a Stress Testing
+
+-----------------------------
+question = what are the main parameters of the fed's model 
+answer = The main parameters of the Fed's model include being independent, forward-looking, consistent and comparable across firms, generated from simple approaches, robust and stable, conservative, and able to capture the effect of economic stress. The models also rely on detailed portfolio data provided by firms and data collected on regulatory reports and proprietary industry data. Notable updates to the supervisory models include changes to the first-lien mortgage model, the international bank and charge cards portfolio model, and the trading IDL model.
+Documents used:
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	The Federal Reserve’s models rely on det...driven by differences in firm-
+
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	Reserve model reviewers.
+In February 201...modeling principle that empha-
+
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	For the 2024 stress test, the Federal Re...riality of the GMS dependence.
+
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	decisions are informed by a comprehensiv...lidation-
+reissue-oct2015.pdf.
+
+-----------------------------
+question = how does the fed utilize mortgage information 
+answer = The Federal Reserve utilizes mortgage information by mapping FICO® Scores as an input to its first-lien mortgage loss model, using them as the most widely used credit scores in historical data. The Fed has updated its supervisory models for the 2024 stress test, including changes to the first-lien mortgage model to control for macroeconomic data variations during the COVID-19 pandemic. The models rely on detailed portfolio data to provide independent assessments of each firm's capital adequacy under stress.
+Documents used:
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	1 The Federal Reserve maps to FICO® Scor...visory Stress Test Methodology
+
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	For the 2024 stress test, the Federal Re...riality of the GMS dependence.
+
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	Income at origination
+borrowerincome
+Bor...visory Stress Test Methodology
+
+	source: ./2024-march-supervisory-stress-test-methodology.pdf	The Federal Reserve’s models rely on det...driven by differences in firm-
+
+-----------------------------

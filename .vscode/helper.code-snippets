@@ -23,5 +23,30 @@
 			"%dotenv ../.env"
 		],
 		"description": "load .env file using dotenv"
+	},
+	"load docs to vector database":{
+		"scope":"jupyter, python", 
+		"prefix": " load_docs_to_vdb",
+		"body":[
+			"dir_path = NONE",
+			"INDEX_PATH = NONE",
+			"file_loader = NONE",
+			"text_splitter = NONE",
+			"if(not os.path.exists(INDEX_PATH)):",
+			"\tdocs = []",
+			"\tfor f in os.listdir(PATH_TO_PDFS):",
+			"\tdir_path = os.path.join(PATH_TO_PDFS, f)",
+			"\tif os.path.isfile(dir_path):",
+			"\t\t\tloader = file_loader(dir_path)",
+			"\tdocs.extend(loader.load())",
+
+			"\tsplits = text_splitter.split_documents(docs)",
+
+			"\tvectorstore = FAISS.from_documents(splits, embedding_model)",
+			"\tvectorstore.save_local(INDEX_PATH)",
+			"else:",
+			"\tvectorstore = FAISS.load_local(INDEX_PATH, embedding_model, allow_dangerous_deserialization=True)",
+		]
+
 	}
 }

@@ -24,29 +24,49 @@
 		],
 		"description": "load .env file using dotenv"
 	},
+	"load models":{
+		"scope":"jupyter, python", 
+		"prefix": " load_model",
+		"body": [
+			"from langchain_openai import OpenAIEmbeddings, ChatOpenAI",
+			"llm = ChatOpenAI(model=\"gpt-4o-mini\")",
+			"embedding_model = OpenAIEmbeddings(model=\"text-embedding-3-small\")"
+		]
+	},
 	"load docs to vector database":{
 		"scope":"jupyter, python", 
 		"prefix": " load_docs_to_vdb",
 		"body":[
-			"dir_path = NONE",
-			"INDEX_PATH = NONE",
-			"file_loader = NONE",
-			"text_splitter = NONE",
-			"if(not os.path.exists(INDEX_PATH)):",
-			"\tdocs = []",
-			"\tfor f in os.listdir(PATH_TO_PDFS):",
-			"\tdir_path = os.path.join(PATH_TO_PDFS, f)",
-			"\tif os.path.isfile(dir_path):",
-			"\t\t\tloader = file_loader(dir_path)",
-			"\tdocs.extend(loader.load())",
-
-			"\tsplits = text_splitter.split_documents(docs)",
-
-			"\tvectorstore = FAISS.from_documents(splits, embedding_model)",
-			"\tvectorstore.save_local(INDEX_PATH)",
-			"else:",
-			"\tvectorstore = FAISS.load_local(INDEX_PATH, embedding_model, allow_dangerous_deserialization=True)",
+"from langchain_community.vectorstores import FAISS",
+"from langchain_text_splitters import RecursiveCharacterTextSplitter",
+"from langchain_community.document_loaders import PyPDFLoader",
+"import os",
+"file_loader = PyPDFLoader",
+"text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200) ",
+"",
+"PATH_TO_PDFS = '$1'",
+"INDEX_PATH = os.path.join(PATH_TO_PDFS, 'faiss_index') ",
+"if(not os.path.exists(INDEX_PATH)):",
+"    docs = []",
+"    for f in os.listdir(PATH_TO_PDFS):",
+"        dir_path = os.path.join(PATH_TO_PDFS, f)",
+"        if os.path.isfile(dir_path):",
+"                loader = file_loader(dir_path)",
+"        docs.extend(loader.load())",
+"    splits = text_splitter.split_documents(docs)",
+"    vectorstore = FAISS.from_documents(splits, embedding_model)",
+"    vectorstore.save_local(INDEX_PATH)",
+"else:",
+"    vectorstore = FAISS.load_local(INDEX_PATH, embedding_model, allow_dangerous_deserialization=True)"
+		]
+	},
+	"make field":{
+		"scope":"jupyter, python", 
+		"prefix": " pyfield",
+		"body": [
+" $1 : float = Field(description=\"$1\")",
 		]
 
-	}
+	},
+	
 }

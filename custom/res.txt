@@ -1,0 +1,192 @@
+split 1
+NONE
+
+split 2
+NONE
+
+split 3
+NONE
+
+split 4
+NONE
+
+split 5
+NONE
+
+split 6
+NONE
+
+split 7
+NONE
+
+split 8
+NONE
+
+split 9
+NONE
+
+split 10
+The content provided does not contain specific information about how the financial statements have changed since Q1. Therefore, the relevant information to the question is not present in the content.
+
+split 11
+NONE
+
+split 12
+The content provided compares the financial statements of U.S. Bancorp for the second quarter of 2024 (2Q24) with the first quarter of 2024 (1Q24) and the second quarter of 2023 (2Q23). It shows changes in net interest income, noninterest income, noninterest expense, net income to the company, diluted earnings per share (EPS), nonperforming assets, NPA ratio, and net charge-off ratio between the mentioned quarters. Therefore, the content is relevant to the question.
+
+split 13
+The content provided does not contain information on how the financial statements have changed since Q1.
+
+split 14
+The content provided does not contain relevant information to determine how the financial statements have changed since Q1.
+
+split 15
+NONE
+
+split 16
+The content provided does not contain specific information about how the financial statements have changed since Q1.
+
+split 17
+The content provided does not include information relevant to how the financial statements have changed since Q1.
+
+split 18
+The content provided does not contain specific information on how the financial statements have changed since Q1. Therefore, the relevant information to the question is "NONE".
+
+split 19
+The content provides financial information about the value of NCOs (Net Charge-Offs), Reserve Build, and Allowance for Credit Losses for different quarters (2Q23, 3Q23, 4Q23, 1Q24, 2Q24). It shows a trend in these values over time. This information is relevant to the question about how financial statements have changed since Q1.
+
+split 20
+The content provided contains information about the financial statements of U.S. Bancorp comparing Q2 of the current year with Q1 and Q2 of the previous year. The net interest income, noninterest income, net revenue, noninterest expense, operating income, provision for credit losses, and income before taxes are some of the items compared. It shows changes in these financial metrics over the quarters.
+
+split 21
+NONE
+
+split 22
+NONE
+
+split 23
+The content provides information on the financial statements of U.S. Bancorp for Q2 of 2024 compared to Q1 of 2024. It shows changes in items such as loans, investment securities, total interest income, deposits, short-term borrowings, long-term debt, total interest expense, net interest income, and net interest margin.
+
+split 24
+The content indicates that noninterest income increased from $2,700 million in Q1 to $2,815 million in Q2. This shows an increase in noninterest income between Q1 and Q2.
+
+split 25
+NONE
+
+split 26
+The content provides information on how the financial statement has changed since Q1. It mentions that on a linked quarter basis, adjusted noninterest expense decreased due to lower compensation and employee benefits expense, partially offset by higher net occupancy, equipment, marketing, and business development expenses. It shows the specific amounts for Compensation & Benefits, Technology & Communications, Occupancy & Equipment, Professional Services, Marketing/Business Development, and All Other categories in Q2 compared to Q1.
+
+split 27
+The content mentions changes in the Total Noninterest Expense from $4,214 in the previous quarter to $4,459 in the current quarter, which represents a decrease of 5.5% linked quarter and a decrease of 7.8% year-over-year. Excluding Notable Items, the expense changed by -0.1% linked quarter and -1.7% year-over-year.
+
+Therefore, the financial statement changes in Total Noninterest Expense have shown a decrease compared to the previous quarter and year-over-year.
+
+split 28
+The content describes changes in U.S. Bancorp's financial statements since Q1, including strong CET1 capital accretion of approximately 30bps, net of distributions, reflective of their diversified business mix and enhanced earnings profile with Union Bank. It also mentions the increase in the preliminary stress capital buffer to 3.1 percent and a planned 2% increase to the quarterly common dividend in the fourth quarter, subject to Board approval. Additionally, it notes a 120 basis points increase in CET1 capital accretion since Q2 2023. Thus, the financial statement changes since Q1 include improvements in capital accretion, stress capital buffer, and dividend plans.
+
+split 29
+NONE
+
+split 30
+NONE
+
+split 31
+NONE
+
+split 32
+The content provides information on how the average total loans have changed since Q1. It mentions that on a linked quarter basis, average total loans increased driven by higher commercial loans and credit card loans, partially offset by lower total commercial real estate loans and other retail loans.
+
+split 33
+The content provides information about the changes in U.S. Bancorp's financial statements since Q1. It mentions that on a year-over-year basis, average total deposits increased due to higher interest-bearing deposits, offset by a decline in noninterest-bearing deposits. On a linked quarter basis, average total deposits grew primarily from growth in interest-bearing deposits offset by a decline in noninterest-bearing deposits. The data also includes the average balances for noninterest-bearing deposits, money market savings, interest checking, savings accounts, time deposits, total interest-bearing deposits, and total deposits for Q1 and Q2. Therefore, the content contains relevant information about the changes in the financial statements since Q1.
+
+split 34
+The content provides financial information for U.S. Bancorp for different quarters, including the figures for Total U.S. Bancorp shareholders' equity and various capital ratios for 2Q24, 1Q24, 4Q23, 3Q23, and 2Q23. This information allows us to compare the changes in the financial statements over these quarters.
+
+split 35
+The content provided does not contain information about how the financial statements have changed since Q1.
+
+split 36
+NONE
+
+split 37
+The financial statements have changed since Q1 as follows:
+- Average loans increased by 2.7% on a linked quarter basis
+- Utilization increased quarter over quarter to 25.2% at 2Q24 versus 24.5% at 1Q24
+- Non-performing loans ratio remained relatively flat quarter-over-quarter
+
+split 38
+The content provided contains information about U.S. Bancorp's financial statements. It shows a comparison of key statistics from Q1 to Q2. The average loans decreased, non-performing loans ratio increased, and delinquency percentages changed. So, the financial statements have changed over since Q1.
+
+split 39
+The content provided shows the financial statistics for U.S. Bancorp related to residential mortgages. It provides information on the average loans, net charge-offs ratio, delinquencies, and non-performing loans for Q2 2023, Q1 2024, and Q2 2024. The information allows for a comparison of these financial metrics over time, specifically since Q1.
+
+Therefore, the change in financial statements since Q1 can be summarized as follows:
+1. Average Loans: Decreased from $115,639 million in Q1 2024 to $116,478 million in Q2 2024.
+2. 30-89 Delinquencies: Increased from 0.12% in Q1 2024 to 0.12% in Q2 2024.
+3. 90+ Delinquencies: Increased from 0.12% in Q1 2024 to 0.15% in Q2 2024.
+4. Non-performing Loans: Decreased from 0.13% in Q1 2024 to 0.13% in Q2 2024.
+
+Overall, the financial metrics for average loans and delinquencies have changed slightly since Q1 2024.
+
+split 40
+The content provided does not contain information on how financial statements have changed over time since Q1.
+
+split 41
+The content provides information about the financial statement changes since Q1. It mentions that the average loans increased by 1.5% on a linked quarter basis, the net charge-off rate increased to 4.47%, and delinquencies moderated from 1Q24. Therefore, the financial statement changes since Q1 include an increase in average loans and net charge-off rate, as well as a moderation in delinquencies.
+
+split 42
+The content provided compares certain financial statistics of U.S. Bancorp from Q1 2024 to Q2 2024. It mentions that average loans decreased from $43,685 million in Q1 2024 to $43,230 million in Q2 2024, and delinquency rates also changed slightly during this period. Therefore, this information provides details on how certain financial aspects have changed since Q1 2024.
+
+split 43
+The content provides financial information for U.S. Bancorp for the second quarter of 2024 compared to the first quarter of 2024. It shows changes in net interest income, noninterest income, total net revenue, noninterest expense, and efficiency ratio over the two quarters. The comparison shows an increase in net interest income, noninterest income, and total net revenue from Q1 to Q2, along with a decrease in noninterest expense and efficiency ratio.
+
+split 44
+The content provided does contain information relevant to the question. The financial statement shows changes in total net revenue, noninterest expense, net income attributable to U.S. Bancorp, net income applicable to U.S. Bancorp common shareholders, among other data points. The data provided in the content can be used to analyze the changes in the financial statements since Q1.
+
+split 45
+The content provided does not contain information on how the financial statements have changed since Q1.
+
+split 46
+The content provided contains information related to the financial statements of U.S. Bancorp for the quarters ending June 30, 2024, March 31, 2024, and June 30, 2023. It includes details such as net income applicable to U.S. Bancorp common shareholders, intangibles amortization, average total equity, average tangible common equity, and return on tangible common equity for these quarters.
+
+The financial statements have changed over the quarters mentioned, with fluctuations in net income applicable to U.S. Bancorp common shareholders, intangibles amortization, and return on tangible common equity. For more specific details on the changes, a deeper analysis comparing the numbers in these financial statements is required.
+
+split 47
+NONE
+
+split 48
+NONE
+
+split 49
+The content provided gives information about net charge-offs and ratios for residential mortgage loans and other retail loans. It does not provide direct information on how financial statements have changed since Q1. Therefore, the relevant information to the question is "NONE".
+
+split 50
+The content provides information on the financial statement changes for U.S. Bancorp from Q1 to Q2 of 2024. The total equity, preferred stock, noncontrolling interest, goodwill, intangible assets, tangible common equity, common equity tier 1 capital, and adjustments have all changed over the period.
+
+split 51
+The content provides information on the changes in financial statements since Q1, including adjustments in common equity tier 1 capital, total assets, goodwill, intangible assets, tangible assets, risk-weighted assets, and adjustments related to the current expected credit losses methodology implementation. The specific changes in the values of these financial statement items over time are listed.
+
+split 52
+The content provides information on the changes in financial statements since Q1. It shows the changes in various figures such as expected credit losses, risk-weighted assets, common shares outstanding, ratios, and tangible book value per common share. Therefore, the content is relevant to the question asked.
+
+split 53
+NONE
+
+split 54
+NONE
+
+split 55
+NONE
+
+split 56
+The content provides information on notable items for U.S. Bancorp in different quarters, including the three months ended June 30, 2024, March 31, 2024, and June 30, 2023. It mentions charges for the increase in FDIC special assessment, merger and integration-related charges, provision for credit losses, and noninterest income related to balance sheet repositioning and capital management actions in these quarters. This information can be relevant to understanding how the financial statements have changed over time since Q1.
+
+split 57
+The content provided does not directly address how the financial statements have changed since Q1. Therefore, the relevant information is "NONE".
+
+split 58
+The content provided does not directly state how the financial statements have changed since Q1. It mainly discusses notable items for the year-ended December 31, 2022. Therefore, the relevant information to the question is "NONE."
+
+split 59
+NONE
+

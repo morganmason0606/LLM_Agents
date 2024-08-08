@@ -18,7 +18,6 @@ class WebsiteChecker(Frame):
             logging (boolean): whether the application will print out when it has checked. Default value = False            
     """
 
-
     #static var
     VALUES = {
             "5 seconds" : 5,
@@ -32,7 +31,7 @@ class WebsiteChecker(Frame):
     def __init__(self, parent, logging=False, *args, **kwargs):       
         super().__init__(parent, *args, **kwargs) 
         self.parent = parent
-        self.parent.protocol("WM_DELETE_WINDOW", lambda: (self.stop(), self.parent.destroy()))
+        self.parent.protocol("WM_DELETE_WINDOW", self.on_closing)
         self._schedule = None
         self.logging = logging
         
@@ -53,7 +52,7 @@ class WebsiteChecker(Frame):
         # frequency selector
         self.freq_label = ttk.Label(self, text="Frequency of check:")
         self.freq_label.grid(column = 0, row=2)
-        self.freq_select = ttk.Combobox(self, state="readonlsy", values=list(WebsiteChecker.VALUES.keys()))
+        self.freq_select = ttk.Combobox(self, state="readonly", values=list(WebsiteChecker.VALUES.keys()))
         self.freq_select.grid(column = 1, row=2)
 
         # run and stop button
@@ -63,9 +62,27 @@ class WebsiteChecker(Frame):
         self.stop_button.grid(column=1, row=3)
 
         # quit button
-        self.quit_button = ttk.Button(self, text="Quit", command=(lambda: (self.stop(), self.parent.destroy())))
+        self.quit_button = ttk.Button(self, text="Quit", command=self.on_closing)
         self.quit_button.grid(columnspan=2, column=0, row=4)
     
+        #label
+        self.checking_label = ttk.Label(self, text="")
+        self.checking_label.grid(columnspan=2, column=0, row=5)
+    def get_url(self) -> str:
+        """
+            gets a full url. Makes the assumption it is using the http protocol if none is given.
+        """ 
+        url = self.url_entry.get()
+        if url[:4] != "http": 
+            url = "http://" + url
+        return url
+
+    @staticmethod
+    def get_http_date() -> str: 
+        #builidng http data
+        now = datetime.datetime.now(datetime.UTC)
+        return now.strftime("%a, %d %b %Y %H:%M:%S GMT")
+
     def run(self): 
         """
             starts up the main application of checking a url at a given frequency
@@ -86,16 +103,13 @@ class WebsiteChecker(Frame):
             return
         
         # cleaning url, requests lib likes it to be a full url
-        if url[:3] not in ("www", "htt"):
-            url = "http://www." + url 
-        elif url[:3] == "www": 
-            url = "http://" + url
+        url = self.get_url()
         
         # making request
         try: 
             resp = requests.get(url)
         except Exception as inst:
-            messagebox.showerror("Error", "Failed to retrieve website information")
+            messagebox.showerror("Error", f"bad url :{url}")
             self.stop()
             return
         
@@ -110,10 +124,8 @@ class WebsiteChecker(Frame):
         # we can check if a page has changed using the If-Modified-Since header
         # but if the header isn't supported by the server, we will instead compare other ways
 
-        #builidng http data
-        now = datetime.datetime.now(datetime.UTC)
-        http_date = now.strftime("%a, %d %b %Y %H:%M:%S GMT")
-        
+        http_date = WebsiteChecker.get_http_date()
+
         # sending request with haeder
         resp = requests.head(
             url=url, 
@@ -130,15 +142,19 @@ class WebsiteChecker(Frame):
         else: 
             # we can either use the Last-Modified header if it is available, or hash the response i
             # hashing the response is likely to create false positives 
-            if "Last-Modified" not in resp.headers:
-                # our hashing function will be to compare the hashes of the response object
-                hashf = lambda response: hashlib.sha256(response.text.encode('utf-8')).hexdigest() 
-            else: 
+            if "Last-Modified" in resp.headers:
                 # our hashing function will be to compare the Last modified header value
                 hashf = lambda response: response.headers['Last-Modified']
+            elif "ETag" in resp.headers:
+                hashf = lambda response: response.headers['ETag']
+            else: 
+                # our hashing function will be to compare the hashes of the response object
+                hashf = lambda response: hashlib.sha256(response.text.encode('utf-8')).hexdigest() 
             
             old_val = hashf(resp)
             self._schedule = periodic.Periodic(freq, lambda: self.check_url(old_val, hashf))
+        
+        self.checking_label.config(text = f"Checking {url}, starting at time {http_date}")
             
     def check_header(self, old_time): 
         """
@@ -148,9 +164,11 @@ class WebsiteChecker(Frame):
         Args:
             old_time (str): time started in RFC 7231 format
         """
+        url = self.get_url()
+
         try: 
             resp = requests.head(
-                url=self.url_entry.get(), 
+                url=url, 
                 headers = {
                     "If-Modified-Since": old_time
                 },
@@ -164,6 +182,8 @@ class WebsiteChecker(Frame):
             messagebox.showinfo("Change Detected", "A change has been detected")
         elif self.logging:
             print("checked, no change")
+
+        self.checking_label.config(text = f"last checked: {WebsiteChecker.get_http_date()}")
     
     def check_url(self, old_hash, hash_fun): 
         """
@@ -174,12 +194,9 @@ class WebsiteChecker(Frame):
             old_hash (A'): the 'hash' value of the initial requet, can be of any type. old_hash is expected to be the output of hash_fun(first_request)
             hash_fun (Request -> A'): the hashing function used to get the hash of a function. Of expected type "Request -> type(old_hash)". 
         """
-        url = self.url_entry.get()
         # cleaning url, requests lib likes it to be a full url
-        if url[:3] not in ("www", "htt"):
-            url = "http://www." + url 
-        elif url[:3] == "www": 
-            url = "http://" + url
+        url = self.get_url()
+            
         #checking for valid frequency
         try: 
             resp = requests.get(url)
@@ -192,6 +209,8 @@ class WebsiteChecker(Frame):
             messagebox.showinfo("Change Detected", "A change has been detected")
         elif self.logging: 
             print("checked, no change")
+        self.checking_label.config(text = f"last checked: {WebsiteChecker.get_http_date()}")
+    
 
     def stop(self): 
         """
@@ -205,7 +224,9 @@ class WebsiteChecker(Frame):
         self.url_entry.config(state=NORMAL)
         self.freq_select.config(state=READABLE)
 
-    
+    def on_closing(self):
+        self.stop()
+        self.parent.destroy()    
 
 if __name__ == "__main__":
     messagebox.showwarning("Warning", "Sending requests to a website too frequently may result in being banned")

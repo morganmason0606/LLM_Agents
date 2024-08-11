@@ -3,7 +3,7 @@ from threading import Timer, Lock
 
 class Periodic(object):
     """
-    A periodic task running in threading.Timers
+    A periodic task running in threading.Timerspy
     """
 
     def __init__(self, interval, function, *args, **kwargs):

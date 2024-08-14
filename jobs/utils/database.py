@@ -1,4 +1,5 @@
 import sqlite3
+import os
 
 class Database(): 
     ENCODING = [
@@ -14,7 +15,7 @@ class Database():
     """)
     ]
 
-    DATABASE_PATH="jobs.db"
+    DATABASE_PATH=os.path.join(os.path.dirname(__file__), "jobs.db")
 
     def __init__(self): 
         self.conn: sqlite3.Connection = None
@@ -26,6 +27,7 @@ class Database():
         except Exception as e: 
             print(f"Initialization Error: {e}")
     def connect(self):
+        print(self.DATABASE_PATH)
         self.conn = sqlite3.connect(self.DATABASE_PATH)
 
     def close(self): 

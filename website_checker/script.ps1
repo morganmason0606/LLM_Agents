@@ -1,29 +1,33 @@
-# Define the target times in GMT
-$timeGMT1 = "16:00z" # 4pm UTC is 12pm ET
-$timeGMT2 = "20:00z" #8PM UTC is 4pm ET 
+# Define the path to the Python executable and the script
+$pythonPath = "C:\Python39\python.exe"
+$scriptPath = "C:\path\to\my_script.py"
 
-$localTime1 = Get-Date $timeGMT1 -format "hh:mm"
-$localTime2 = Get-Date $timeGMT2 -format "hh:mm"
+# Define the task name and the time to run the task
+$taskName = "RunPythonScript"
+$timeToRun = "2024-08-08T10:00:00"  # Set your desired time here
 
-#getting other variables
-$pythonPath = Get-Command python 
-if(! $pythonPath){
-    Write-Error "Python not detected"
-    exit 1 
-}
+# Create the scheduled task
+$action = New-ScheduledTaskAction -Execute $pythonPath -Argument $scriptPath
+$trigger = New-ScheduledTaskTrigger -Once -At $timeToRun
+$principal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -LogonType ServiceAccount -RunLevel Highest
+$settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable
 
-#checking library, this could also be done with a venv
-$requests_installed = $(pip show requests)
-if(! $requests_installed){
-    Write-Error "Requests library not installed. Please run: pip install requests"
-    exit 1
-}
+Register-ScheduledTask -Action $action -Trigger $trigger -Principal $principal -Settings $settings -TaskName $taskName
+```
 
-$script = "check_website_script.py"
+3. **Run the PowerShell Script**:
+   Save the PowerShell script as `schedule_task.ps1` and run it in PowerShell:
 
-$action = New-ScheduledTaskAction -Execute $pythonPath -Argument $(Join-Path $(Get-Location) $script)
-$trigger1 = New-ScheduledTaskTrigger -Once -At $timeGMT1
-$trigger2 = New-ScheduledTaskTrigger -Once -At $timeGMT2
+```powershell
+powershell -ExecutionPolicy Bypass -File C:\path\to\schedule_task.ps1
+```
 
-Register-ScheduledTask -TaskName "OneTimeTask12PM_ET" -Trigger $trigger1 -Action $action -Description "One-time task at 12:00 PM ET adjusted for local time"
-Register-ScheduledTask -TaskName "OneTimeTask4PM_ET" -Trigger $trigger1 -Action $action -Description "One-time task at 4:00 PM ET adjusted for local time"
+This script will create a scheduled task that runs your Python script at the specified time. The task will run only once, as specified by the `-Once` parameter in the `New-ScheduledTaskTrigger` cmdlet.
+
+Would you like more details or assistance with any specific part of this process?
+
+Source: Conversation with Copilot, 8/8/2024
+(1) Executing Python Scripts through PowerShell: A Step-by-Step Guide. https://www.advancedinstaller.com/execute-python-script-through-powershell.html.
+(2) Running a python script via Powershell script - Stack Overflow. https://stackoverflow.com/questions/54350820/running-a-python-script-via-powershell-script.
+(3) What's the best way to execute PowerShell scripts from Python. https://stackoverflow.com/questions/47094207/whats-the-best-way-to-execute-powershell-scripts-from-python.
+(4) How to run a python program from powershell based on python hashbang .... https://stackoverflow.com/questions/55601446/how-to-run-a-python-program-from-powershell-based-on-python-hashbang.

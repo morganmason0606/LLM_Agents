@@ -1,19 +1,16 @@
 import requests
 
 import concurrent.futures
-import datetime
-import hashlib
 from typing import Type
 from tkinter import messagebox
 
-from database import Database
-from utils import get_http_date
+from utils.database import Database
+from utils.helperfunctions import get_http_date, get_hash
 
 
 class Checker():
     def __init__(self): 
         self.database: Type[Database] = Database()
-    
     
     def check_web_change(self, id, url, lastmodified, hash):
         print(f"checking {url}")
@@ -31,7 +28,7 @@ class Checker():
         else:
             print("checking hash")
             resp = requests.get(url=url)
-            nhash = hashlib.sha256(resp.text.encode('utf-8')).hexdigest()
+            nhash = get_hash(resp)
             if nhash != hash:
                 return (id, url, lastmodified, hash)
         return None
@@ -40,7 +37,6 @@ class Checker():
         res = self.database.get_jobs()
         return res.fetchall()
     
-
 def main(): 
     checker = Checker()
     jobs = checker.get_jobs()
@@ -62,12 +58,13 @@ def main():
                         checker.database.update_job(id, hash=None, lastmodified=lastmodified)
                     else: 
                         checker.database.update_job(id, hash=hash, lastmodified=None)
+
+
     if changed: 
-        with open("changes.txt", "w+") as f:
+        with open("../changes.txt", "w+") as f:
             for url in changed: 
                 f.write(url)
-        messagebox.showinfo("Change detected", f"A change has been detected in the following urls:\n{'\n'.join(changed)} ")
-
+        messagebox.showinfo("Change detected", f"Changes have been detected. Changes have been written to changes.txt.\nA change has been detected in the following urls:\n{'\n'.join(changed)} ")
 
 
 if __name__ == "__main__":

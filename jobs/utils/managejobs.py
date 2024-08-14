@@ -3,12 +3,10 @@ import requests
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
-import datetime
-import hashlib
 from typing import Type, List
 
-from database import Database
-from utils import get_http_date, clean_url
+from .database import Database
+from .helperfunctions import get_http_date, clean_url, get_hash
 
 
 class ManageJobs(tk.Frame): 
@@ -30,7 +28,6 @@ class ManageJobs(tk.Frame):
 
         self.job_groups: List[JobGroup] =[]
         self.create_groups()
-    
     
     def create_groups(self): 
         jobs = self.database.get_jobs().fetchall()
@@ -65,7 +62,7 @@ class ManageJobs(tk.Frame):
                 http_date = get_http_date()
                 self.database.add_job(url=url, hash=None, lastmodified=http_date)
             else:
-                hashv = hashlib.sha256(resp.text.encode("utf-8")).hexdigest()
+                hashv = get_hash(resp)
                 self.database.add_job(url, hash=hashv, lastmodified=None)
             self.url_entry.delete(0, tk.END)  
         finally:
@@ -77,6 +74,7 @@ class ManageJobs(tk.Frame):
         self.database.delete_job(id)
         self.refresh_group()
         
+
 class JobGroup(tk.Frame): 
     def __init__(self, parent: Type[ManageJobs], id, url, *args, **kwargs): 
         super().__init__(parent, *args, **kwargs)
@@ -88,6 +86,7 @@ class JobGroup(tk.Frame):
         
         self.url_entry = ttk.Label(self, text=url)
         self.url_entry.grid(column = 1, row = 0)
+
 
 if __name__ == "__main__":
     root = tk.Tk()
